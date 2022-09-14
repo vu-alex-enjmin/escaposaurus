@@ -38,18 +38,19 @@
 			"root": {
 				"folders" : [
 					{
-						"foldername" : "Telephone fixe",
+						"foldername" : "Telephone du bureau",
 						"password" : "789123",
 						"promptTitle" : "TELEPHONE", // Titre de la boite de dialogue de mot de passe
 						"promptText" : "Quel numéro appeler ?", // Texte de la boite de dialogue
 						"promptConfirm" : "APPELER", // Bouton de confirmation de la boite de dialogue
 						"inputPlaceholder" : "numéro", // Texte de remplacement lorsque la zone de saisie est vide
 						"promptError" : "Personne n'a répondu à l'appel.", // Message d'erreur en cas de mauvais mot de passe
-						"sequence": 1,
-						"files" : ["prises_de_notes.png"],
+						"unavailableText" : "Je n'ai pas besoin du téléphone du bureau pour le moment.", // Texte du message "repertoire indisponible"
+						"sequence": 3,
+						"files" : ["prises_de_notes_p1.png", "prises_de_notes_p2.png"],
 					},
 					{
-						"foldername" : "Nom du Jeu",
+						"foldername" : "Choisir une boîte de jeu",
 						"password" : "Orc Slugger",
 						"promptTitle" : "NOM DU JEU", // Titre de la boite de dialogue de mot de passe
 						"promptText" : "C'était quoi le nom du jeu déjà&nbsp;?", // Texte de la boite de dialogue
@@ -57,16 +58,63 @@
 						"inputPlaceholder" : "nom du jeu", // Texte de remplacement lorsque la zone de saisie est vide
 						"promptError" : "Je crois pas que c'était ça...", // Message d'erreur en cas de mauvais mot de passe
 						"sequence": 0,
-						"files" : [],
 						"folders" : [
 							{
-								"foldername" : "Cles",
-								"files" : ["cle_acier.png", "cle_argent.png", "cle_cuivre.png", "cle_fer.png", "cle_or.png"]
+								"foldername" : "Cartes Joueur",
+								"files" : [
+									"cle_acier.png",
+									"cle_argent.png",
+									"cle_cuivre.png",
+									"cle_fer.png",
+									"cle_or.png",
+									"epee.png",
+									"parchemin.png",
+									"potion.png",
+								]
 							},
-						]
+							{
+								"foldername" : "Porte fermee",
+								"password" : "254",
+								"promptTitle" : "SERRURES", // Titre de la boite de dialogue de mot de passe
+								"promptText" : "Quelles clés insérer&nbsp;?", // Texte de la boite de dialogue
+								"promptConfirm" : "OK", // Bouton de confirmation de la boite de dialogue
+								"inputPlaceholder" : "(ex : 123)", // Texte de remplacement lorsque la zone de saisie est vide
+								"promptError" : "La porte ne s'est pas ouverte.", // Message d'erreur en cas de mauvais mot de passe
+								"sequence": 1,
+								"folders": [
+									{
+										"foldername" : "Se debarasser de l'orc",
+										"password" : "Attaquer",
+										"promptTitle" : "ACTION", // Titre de la boite de dialogue de mot de passe
+										"promptText" : "Quelle action effectuer&nbsp;?", // Texte de la boite de dialogue
+										"promptConfirm" : "OK", // Bouton de confirmation de la boite de dialogue
+										"inputPlaceholder" : "nom de l'action", // Texte de remplacement lorsque la zone de saisie est vide
+										"promptError" : "L'action a échoué.", // Message d'erreur en cas de mauvais mot de passe
+										"sequence": 2,
+										"files" : [],
+										"folders": [
+											{
+												"foldername" : "Se debarasser de l'orc (2e essai)",
+												"password" : "Câliner",
+												"promptTitle" : "ACTION (2e essai)", // Titre de la boite de dialogue de mot de passe
+												"promptText" : "Quelle action effectuer&nbsp;?", // Texte de la boite de dialogue
+												"promptConfirm" : "OK", // Bouton de confirmation de la boite de dialogue
+												"inputPlaceholder" : "nom de l'action", // Texte de remplacement lorsque la zone de saisie est vide
+												"promptError" : "L'action a échoué.", // Message d'erreur en cas de mauvais mot de passe
+												"unavailableText" : "Il me semble que je dois contacter quelqu'un.", // Texte du message "repertoire indisponible"
+												"sequence": 4,
+												"files" : [],
+											},
+										],
+									},
+								],
+								"files" : ["orc_card.png"]
+							}
+						],
+						"files" : ["manuel.png"],
 					},
 				],
-				"files" : ["Explorer l'annuaire", "Regarder les boites de jeux"]
+				"files" : ["annuaire.png", "etagere.png"]
 			}
 		} ;
 
@@ -76,38 +124,19 @@
 			"cle_cuivre.png" : "Clé en cuivre",
 			"cle_fer.png" : "Clé en fer",
 			"cle_or.png" : "Clé en or",
-			"etagere.png" : "Etagère",
-			"annuaire.png" : "Annuaire téléphonique",
-			"prises_de_notes.png" : "Prises de notes",
+			"etagere.png" : "Regarder la bibliothèque de jeux",
+			"annuaire.png" : "Consulter l'annuaire téléphonique",
+			"prises_de_notes_p1.png" : "Consulter les notes (1/2)",
+			"prises_de_notes_p2.png" : "Consulter les notes (2/2)",
+			"orc_card.png" : "Orc",
+			"epee.png" : "Épée",
+			"parchemin.png" : "Parchemin de feu",
+			"potion.png" : "Potion",
+			"manuel.png" : "Manuel du Jeu"
 		};
 
-		/*
-		// original udisk data (for reference)
-	  	{"root":{
-	  		"folders":
-		  		[
-		  		{"foldername":"gaming",
-				  	"files":["20190509_316504.mp4"]
-				},
-				{"foldername":"vieillescartespostales",
-						"files":["carte1.jpg", "carte2.jpg", "carte3.jpg", "carte4.jpg", "oh-hi-there.gif"]
-				},
-				{"foldername":"dcim","password":"forclaz","sequence":1,
-			  		"files":["20180807_103031.jpg", "20180807_114356.jpg", "20180807_123538.mp4"]
-			  	},
-			  	{"foldername":"itineraire2018",
-			  		"folders":[{"foldername":"perso", "files":["FXHT4438a.jpg","Screenshot20180701_Wanderplaner(1).jpg"],"password":"nata","sequence":0}]
-			  	},
-			  	{"foldername":"itineraire2019", "password":"trient","sequence":2,
-			  		"files":["fortnitescreen.png", "swisstopo-screen.png"],
-			  		"folders":[{"foldername":"GPS", "files":["idgps.png"],"password":"wandfluehorn","sequence":3}]
-			  	}
-		 		],
-			"files":[
-				"scan_memo.png"]}
-		} ;
-
-		*/
+		// Default text for a locked folder unavailable in the current sequence
+		var defaultUnavailableFolderText = "Je n'ai pas besoin de faire ça pour le moment."
 
 		var gameTitle = "Mémoires d'un stagiaire zélé" ;
 		var gameDescriptionHome = "Ceci est une courte aventure inspirée des expériences de vie d'Elizabeth Magie (1866-1948)<br/>Le code source est téléchargeable sur <a href='https://github.com/RedNaK/escaposaurus' target='_blank'>GitHub</a>" ;
@@ -118,8 +147,8 @@
 		var gameThanks = "Remerciements : <br/> c'est pour les faibles" ;
 
 		var OSName = "Bureaux d'Isidore Balabel, grand collectionneur et philantrope notoire" ;
-		var explorerName = "Panneau de commandes" ;
-		var callerAppName = "Contacts disponibles" ;
+		var explorerName = "Liste des commandes" ;
+		var callerAppName = "Téléphone portable (contacts)" ;
 
 		/*titles of video windows*/
 		var titleData = {} ;
@@ -131,46 +160,51 @@
 		var promptDefault = "Rien à demander, ne pas les déranger." ;
 		var prompt = [] ;
 		prompt[0] = "Prendre contact" ;
-		prompt[1] = "" ;
-		prompt[2] = "" ;
-		prompt[3] = "Envoyer la carte" ;
-		prompt[4] = "Appeler Nathalie pour savoir où en sont les secours." ;
+		prompt[1] = "Prendre contact" ;
+		prompt[2] = "Prendre contact" ;
+		prompt[3] = "Prendre contact" ;
+		prompt[4] = "Prendre contact" ;
+		prompt[5] = "<b>PRENDRE CONTACT</b>" ;
 
 		/*when the sequence number reach this, the player win, the missing contact is added and the player can call them*/
-		var sequenceWin = 4 ;
+		var sequenceWin = 5 ;
 
 		/*before being able to call the contacts, the player has to open the main clue of the sequence as indicated in this array*/
 		/*if you put in the string "noHint", player will be able to immediatly call the contact at the beginning of the sequence*/
 		/*if you put "none" or anything that is not an existing filename, the player will NOT be able to call the contacts during this sequence*/
 		var seqMainHint = [] ;
-		seqMainHint[0] = "scan_memo.png" ;
-		seqMainHint[1] = "aucun" ; /*if you put anything that is not an existing filename of the udisk, the player will never be able to call any contacts or get helps during this sequence*/
-		seqMainHint[2] = "aucun" ;
-		seqMainHint[3] = "swisstopo-screen.png" ;
+		seqMainHint[0] = "noHint" ;
+		seqMainHint[1] = "noHint" ; /*if you put anything that is not an existing filename of the udisk, the player will never be able to call any contacts or get helps during this sequence*/
+		seqMainHint[2] = "noHint" ;
+		seqMainHint[3] = "noHint" ;
+		seqMainHint[4] = "" ;
+		seqMainHint[5] = "noHint" ;
 
 		/*contact list, vid is the name of their folder in the videoContact folder, then the game autoload the video named seq%number of the current sequence%, e.g. seq0.MP4 for the first sequence (numbered 0 because computer science habits)
 	their img need to be placed in their video folder, username is their displayed name
 		*/
 		var normalContacts = [] ;
-		normalContacts[0] = {"vid" : "Denise", "vod_folder" : "", "username" : "Denise (guide)", "canal" : "video", "avatar" : "denise_avatar.jpg"} ;
-		normalContacts[1] = {"vid" : "Nathalie", "vod_folder" : "", "username" : "Nathalie (guide)", "canal" : "video", "avatar" : "nata_avatar.jpg"} ;
+		normalContacts[0] = {"vid" : "Conservateur", "vod_folder" : "", "username" : "Maître de Stage", "canal" : "video", "avatar" : "conservateur_avatar.png"} ;
+		// normalContacts[0] = {"vid" : "Denise", "vod_folder" : "", "username" : "Denise (guide)", "canal" : "video", "avatar" : "denise_avatar.jpg"} ;
+		// normalContacts[1] = {"vid" : "Nathalie", "vod_folder" : "", "username" : "Nathalie (guide)", "canal" : "video", "avatar" : "nata_avatar.jpg"} ;
 
 		/*second part of the list, contact that can help the player*/
 		var helperContacts = [] ;
-		helperContacts[0] = {"vid" : "Albert", "vod_folder" : "", "username" : "Albert (pour avoir un indice)", "canal" : "txt", "avatar" : "albert.png", "bigAvatar" : "albertbig.png"} ;
+		// helperContacts[0] = {"vid" : "Albert", "vod_folder" : "", "username" : "Albert (pour avoir un indice)", "canal" : "txt", "avatar" : "albert.png", "bigAvatar" : "albertbig.png"} ;
 		/*helperContacts[1] = {"vid" : "Lou", "username" : "Lou (pour avoir un deuxième indice) - par message", "canal" : "txt", "avatar" : "Lou_opt.jpg", "bigAvatar" : "avatarHelper2Big.gif"} ;*/
 		
 		/* videos that play at the start of a new sequence */
 		var seqStartVideosPath = videoRoot + "sequenceStart/" ;
 		// whether or not a video should be played at the start of a sequence (0-indexed)
-		var seqStartVideoAvailable = [ false, true ];
+		var seqStartVideoAvailable = [ false, false, false, true, true, false ];
 
 		/*ce qui apparait quand on trouve le dernier élément du disque dur*/
-		finalStepAdded = "ID du GPS transmise aux secours." ;
+		// finalStepAdded = "L'action a fonctionné." ;
 
 		/*the last call, it can be the person we find in the end or anyone else we call to end the quest, allows the game to know it is the final contact that is called and to proceed with the ending*/
-		var missingContact = {"vid" : "missing", "vod_folder" : "","username" : "Nathalie",  "canal" : "video", "avatar" : "nata_avatar.jpg"} ;
-
+		// var missingContact = {"vid" : "missing", "vod_folder" : "","username" : "Nathalie",  "canal" : "video", "avatar" : "nata_avatar.jpg"} ;
+		var missingContact = {"vid" : "missing", "vod_folder" : "", "username" : "Maître de Stage", "canal" : "video", "avatar" : "conservateur_avatar.png"};
+		
 		/*Lou only send text message, they are stored here*/
 		var tips = {} ;
 		tips['Albert'] = [] ;

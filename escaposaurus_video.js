@@ -23,6 +23,7 @@ var passwordPromptTexts = {};
 var passwordPromptConfirms = {};
 var passwordPromptErrors = {};
 var passwordInputPlaceholders = {};
+var folderUnavailableTexts = {};
 
 /*
 	FIRST FUNCTION CALLED UPON WINDOWS LOADED TO PREPARE THE GAME
@@ -38,7 +39,7 @@ function loadDataIntoHTML(){
 	document.getElementById("overlay-btn").innerHTML = gameMissionAccept ;
 	document.getElementById("vid-overlay").src = missionVideoPath ;
 
-	document.getElementById("added").innerHTML = finalStepAdded ;
+	// document.getElementById("added").innerHTML = finalStepAdded ;
 
 	document.getElementById("os-name").innerHTML = OSName ;
 	document.getElementById("callerApp-name").innerHTML = callerAppName ;
@@ -201,6 +202,7 @@ function arborescence(folders, files, parent, fullpath){
 			var promptConfirm = (obj.promptConfirm == undefined)?"":obj.promptConfirm;
 			var inputPlaceholder = (obj.inputPlaceholder == undefined)?"":obj.inputPlaceholder;
 			var promptError = (obj.promptError == undefined)?"":obj.promptError;
+			var unavailableText = (obj.unavailableText == undefined)? defaultUnavailableFolderText : obj.unavailableText;
 
 		    cFolder(
 				obj.foldername, 
@@ -211,7 +213,8 @@ function arborescence(folders, files, parent, fullpath){
 				promptText,
 				promptConfirm,
 				inputPlaceholder,
-				promptError
+				promptError,
+				unavailableText,
 			) ;
 
 		    var fo = (obj.folders == undefined)?null:obj.folders ;
@@ -232,7 +235,7 @@ function arborescence(folders, files, parent, fullpath){
 }
 
 /*folder routine HTML*/
-function cFolder(name, parent, password, seqNumber, promptTitle, promptText, promptConfirm, inputPlaceholder, promptError){
+function cFolder(name, parent, password, seqNumber, promptTitle, promptText, promptConfirm, inputPlaceholder, promptError, unavailableText){
 	passwordCenter[name] = password ;
 
 	if(password != null){
@@ -242,6 +245,7 @@ function cFolder(name, parent, password, seqNumber, promptTitle, promptText, pro
 		passwordPromptConfirms[name] = promptConfirm;
 		passwordInputPlaceholders[name] = inputPlaceholder;
 		passwordPromptErrors[name] = promptError;
+		folderUnavailableTexts[name] = unavailableText;
 	}
 	folderState[name] = 0 ;
 	if(password != ""){
@@ -259,7 +263,7 @@ function cFolder(name, parent, password, seqNumber, promptTitle, promptText, pro
 	var elemA = document.createElement('a') ;
 	if(password != ""){
 		elemA.classList.add("protected-name") ;
-		elemA.setAttribute("onclick", "openPasswordPrompt('"+name+"')") ;
+		elemA.setAttribute("onclick", "openPasswordPrompt(\""+name+"\")") ;
 	}else{
 		elemA.classList.add("folder-name") ;
 	}
@@ -395,9 +399,16 @@ function isItPasswordProtected(foldername){
 	}
 }
 
+function cleanString(str)
+{
+	var unaccented = str.normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+	var clean = unaccented.replace(/[^a-z0-9]/gi, '');
+	return clean;
+}
+
 function doThePasswordMatch(userTry, foldername){
-	var userTryCleared = userTry.replace(/[^a-z0-9]/gi, '') ;
-	var passwordCleared = passwordCenter[foldername].replace(/[^a-z0-9]/gi, '') ;
+	var userTryCleared = cleanString(userTry) ;
+	var passwordCleared = cleanString(passwordCenter[foldername]) ;
 
 	if(isItPasswordProtected(foldername)
 		&& passwordCleared.toLowerCase() == userTryCleared.toLowerCase()){
@@ -448,11 +459,16 @@ function openPasswordPrompt(foldername){
 
 	}else{
 		if(folderState[foldername] == 1){
+			/*
 			var d = document.getElementById("folderN") ;
 			d.innerHTML = foldername ;
+			*/
 
 			var p = document.getElementById("notnowPrompt-window") ;
 			p.classList.remove("hidden") ;
+
+			var unavailableFolderText = document.getElementById("unavailable-folder-text");
+			unavailableFolderText.innerHTML = folderUnavailableTexts[foldername];
 		}/*else nothing as the folder has already been unlocked*/
 	}
 }
@@ -527,6 +543,7 @@ function openVideoWindow(vid, vid_folder){
 	var v = document.createElement("video") ;
 	v.setAttribute("controls", true) ;
 	v.setAttribute("autoplay", true) ;
+	v.setAttribute("height", 480);
 
 	t.innerHTML = title ;
 	v.src = src ;
@@ -593,7 +610,7 @@ function changingSequence(){
 
 function win(){
 	winState = true ;
-	openIt("newContact-window") ;
+	// openIt("newContact-window") ;
 	/*removing existing stuff*/
 	var nc = document.getElementById("normal-contact") ;
 	while (nc.firstChild) {
@@ -604,13 +621,18 @@ function win(){
 	while (hc.firstChild) {
 		hc.removeChild(hc.lastChild);
 	}
+	
+	var nc = document.getElementById("normal-contact") ;
+	createContact(missingContact, nc) ;
 }
 
+/*
 function closeNewContact(d){
 	closeIt(d) ;
 	var nc = document.getElementById("normal-contact") ;
 	createContact(missingContact, nc) ;
 }
+*/
 
 function closeAppelEntrant(d){
 	closeIt(d) ;

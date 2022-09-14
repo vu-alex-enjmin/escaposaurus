@@ -45,13 +45,41 @@
 						"promptConfirm" : "APPELER", // Bouton de confirmation de la boite de dialogue
 						"inputPlaceholder" : "numéro", // Texte de remplacement lorsque la zone de saisie est vide
 						"promptError" : "Personne n'a répondu à l'appel.", // Message d'erreur en cas de mauvais mot de passe
+						"sequence": 1,
+						"files" : ["prises_de_notes.png"],
+					},
+					{
+						"foldername" : "Nom du Jeu",
+						"password" : "Orc Slugger",
+						"promptTitle" : "NOM DU JEU", // Titre de la boite de dialogue de mot de passe
+						"promptText" : "C'était quoi le nom du jeu déjà&nbsp;?", // Texte de la boite de dialogue
+						"promptConfirm" : "OK", // Bouton de confirmation de la boite de dialogue
+						"inputPlaceholder" : "nom du jeu", // Texte de remplacement lorsque la zone de saisie est vide
+						"promptError" : "Je crois pas que c'était ça...", // Message d'erreur en cas de mauvais mot de passe
 						"sequence": 0,
-						"files" : ["prise de notes.png"],
-					}
+						"files" : [],
+						"folders" : [
+							{
+								"foldername" : "Cles",
+								"files" : ["cle_acier.png", "cle_argent.png", "cle_cuivre.png", "cle_fer.png", "cle_or.png"]
+							},
+						]
+					},
 				],
 				"files" : ["etagere.png", "annuaire.png"]
 			}
 		} ;
+
+		var fileDisplayNames = {
+			"cle_acier.png" : "Clé en acier",
+			"cle_argent.png" : "Clé en argent",
+			"cle_cuivre.png" : "Clé en cuivre",
+			"cle_fer.png" : "Clé en fer",
+			"cle_or.png" : "Clé en or",
+			"etagere.png" : "Etagère",
+			"annuaire.png" : "Annuaire téléphonique",
+			"prises_de_notes.png" : "Prises de notes",
+		};
 
 		/*
 		// original udisk data (for reference)

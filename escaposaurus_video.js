@@ -291,7 +291,7 @@ function cFile(name, parent, fullPath){
 	elemA.href = udiskRoot+fullPath+name ;
 	elemA.setAttribute("data-lightbox", "") ;
 	elemA.setAttribute("data-image-alt", "name") ;
-	elemA.innerHTML = name ;
+	elemA.innerHTML = (fileDisplayNames[name] == undefined)? name : fileDisplayNames[name];
 	elem.appendChild(elemA) ;
 
 	var p = document.getElementById(parent+"ul") ;

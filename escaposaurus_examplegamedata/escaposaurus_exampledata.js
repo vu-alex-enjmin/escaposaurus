@@ -44,9 +44,9 @@
 						"promptText" : "Quel numéro appeler ?", // Texte de la boite de dialogue
 						"promptConfirm" : "APPELER", // Bouton de confirmation de la boite de dialogue
 						"inputPlaceholder" : "numéro", // Texte de remplacement lorsque la zone de saisie est vide
-						"promptError" : "Personne n'a répondu à l'appel.", // Message d'erreur en cas de mauvais mot de passe
+						"promptError" : "Cet appel était une perte de temps...", // Message d'erreur en cas de mauvais mot de passe
 						"sequence": 0,
-						"files" : ["prise de notes.png"],
+						"files" : ["nouvelles regles.png"],
 					}
 				],
 				"files" : ["etagere.png", "annuaire.png"]
@@ -81,17 +81,17 @@
 
 		*/
 
-		var gameTitle = "Escaposaurus Scenario Exemple" ;
-		var gameDescriptionHome = "Ceci est une courte aventure d'exemple pour montrer ce que le framework Escaposaurus permet facilement de réaliser.<br/>Le code source est téléchargeable sur <a href='https://github.com/RedNaK/escaposaurus' target='_blank'>GitHub</a>" ;
-		var gameMissionCall = "Voici la vidéo qu'Albert a envoyé à votre bureau d'informaticien spécialisé en récupération de données" ;
-		var gameMissionAccept = "&raquo;&raquo; Accepter la mission et charger la clé USB dans le serveur virtuel (JOUER) &laquo;&laquo;" ;
+		var gameTitle = "Mémoires d'un stagiaire zélé" ;
+		var gameDescriptionHome = "Ceci est une courte aventure inspirée des expériences de vie d'Elizabeth Magie (1866-1948)<br/>Le code source est téléchargeable sur <a href='https://github.com/RedNaK/escaposaurus' target='_blank'>GitHub</a>" ;
+		var gameMissionCall = "Le patron m'a envoyé ce mail étrange... dans quelle galère va-t-il encore me fourrer ? J'en ai marre d'être son souffre douleur." ;
+		var gameMissionAccept = "&raquo;&raquo; Aller au bureau la boule au ventre (JOUER) &laquo;&laquo;" ;
 
-		var gameCredit = "Un jeu conçu et réalisé par : <br/>Stéphanie Mader" ;
-		var gameThanks = "Remerciements : <br/> ;)" ;
+		var gameCredit = "Un jeu conçu et réalisé par : <br/>la team du fond" ;
+		var gameThanks = "Remerciements : <br/> c'est pour les faibles" ;
 
-		var OSName = "Special InformaticienOS 3.11- diskloaded: Escaposaurus_Example" ;
-		var explorerName = "USB DISK EXPLORER" ;
-		var callerAppName = "CALL CONTACT" ;
+		var OSName = "Bureaux d'Isidore Balabel, grand collectionneur et philantrope notoire" ;
+		var explorerName = "Panneau de commandes" ;
+		var callerAppName = "Contacts disponibles" ;
 
 		/*titles of video windows*/
 		var titleData = {} ;

@@ -139,12 +139,12 @@
 
 	<!--PASSWORD PROMPT-->
 		<div id="passPrompt-window" class="hidden">
-			<div class="app-title"><span class="app-title-span">PROTEGE</span></div>
+			<div class="app-title"><span class="app-title-span" id="passPrompt-title">PROTEGE</span></div>
 			<div class="message-content">
-				Dossier : <span id="folderD"></span><br/>
+				<span id="passPrompt-text">Dossier : </span><br/>
 				<input id="passwordInput" name="passwordInput" type="text" placeholder="mot de passe" value="" autocomplete="off" onkeypress="checkIfEnter(event, passwordInput.value, folderInput.value)" />
 				<input id="folderInput" name="folderInput" type="hidden" value="0" />
-				<button class="window-btn" onclick="checkPassword(passwordInput.value, folderInput.value)">OK</button>
+				<button class="window-btn" onclick="checkPassword(passwordInput.value, folderInput.value)" id="passPrompt-confirm">OK</button>
 				&nbsp;&nbsp;
 				<button class="window-btn" onclick="closeIt('passPrompt-window')">ANNULER</button>
 			</div>
@@ -155,7 +155,7 @@
 			<div class="app-title"><span class="app-title-span">:(</span></div>
 			<div class="message-content">
 				<br/>
-				Mauvais mot de passe<br/>
+				<span id="wrongPassword-text"></span><br/>
 				<br/>
 				<button class="window-btn" onclick="closeWrongPassword()">OK</button>
 			</div>

@@ -40,6 +40,11 @@
 					{
 						"foldername" : "Telephone du Bureau",
 						"password" : "789123",
+						"promptTitle" : "TELEPHONE", // Titre de la boite de dialogue de mot de passe
+						"promptText" : "Quel numéro appeler ?", // Texte de la boite de dialogue
+						"promptConfirm" : "APPELER", // Bouton de confirmation de la boite de dialogue
+						"inputPlaceholder" : "numéro", // Texte de remplacement lorsque la zone de saisie est vide
+						"promptError" : "Personne n'a répondu à l'appel.", // Message d'erreur en cas de mauvais mot de passe
 						"sequence": 0,
 						"files" : ["prise de notes.png"],
 					}

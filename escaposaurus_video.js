@@ -18,7 +18,11 @@ var sequenceNumber = 0 ;
 var winState = false ;
 var mainHintFound = false ;
 var gameStart = false ;
-
+var passwordPromptTitles = {};
+var passwordPromptTexts = {};
+var passwordPromptConfirms = {};
+var passwordPromptErrors = {};
+var passwordInputPlaceholders = {};
 
 /*
 	FIRST FUNCTION CALLED UPON WINDOWS LOADED TO PREPARE THE GAME
@@ -192,7 +196,23 @@ function arborescence(folders, files, parent, fullpath){
 		    //console.log("a folder" + obj.foldername) ;
 		    var password = (obj.password == undefined)?"":obj.password;
 		    var seqNumber = (obj.password == undefined)?"":obj.sequence;
-		    cFolder(obj.foldername, parent, password, seqNumber) ;
+			var promptTitle = (obj.promptTitle == undefined)?"":obj.promptTitle;
+			var promptText = (obj.promptText == undefined)?"":obj.promptText;
+			var promptConfirm = (obj.promptConfirm == undefined)?"":obj.promptConfirm;
+			var inputPlaceholder = (obj.inputPlaceholder == undefined)?"":obj.inputPlaceholder;
+			var promptError = (obj.promptError == undefined)?"":obj.promptError;
+
+		    cFolder(
+				obj.foldername, 
+				parent, 
+				password, 
+				seqNumber,
+				promptTitle,
+				promptText,
+				promptConfirm,
+				inputPlaceholder,
+				promptError
+			) ;
 
 		    var fo = (obj.folders == undefined)?null:obj.folders ;
 		 	var fi = (obj.files == undefined)?null:obj.files ;
@@ -212,10 +232,16 @@ function arborescence(folders, files, parent, fullpath){
 }
 
 /*folder routine HTML*/
-function cFolder(name, parent, password, seqNumber){
+function cFolder(name, parent, password, seqNumber, promptTitle, promptText, promptConfirm, inputPlaceholder, promptError){
 	passwordCenter[name] = password ;
+
 	if(password != null){
 		sequenceFolder[seqNumber] = name ;
+		passwordPromptTitles[name] = promptTitle;
+		passwordPromptTexts[name] = promptText;
+		passwordPromptConfirms[name] = promptConfirm;
+		passwordInputPlaceholders[name] = inputPlaceholder;
+		passwordPromptErrors[name] = promptError;
 	}
 	folderState[name] = 0 ;
 	if(password != ""){
@@ -410,15 +436,14 @@ function openPasswordPrompt(foldername){
 	if(sequenceFolder[sequenceNumber] == foldername){
 		document.getElementById("passwordInput").value = "" ;
 
-
 		var x = document.getElementById("folderInput") ;
 		x.value = foldername ;
 
-		var d = document.getElementById("folderD") ;
-		d.innerHTML = foldername ;
-
 		var p = document.getElementById("passPrompt-window") ;
 		p.classList.remove("hidden") ;
+
+		uppdatePasswordPrompt(foldername);
+
 		document.getElementById("passwordInput").focus() ;
 
 	}else{
@@ -663,4 +688,19 @@ function playSequenceStartVideo()
 	{
 		openVideoWindow("seqStartVideo", seqStartVideosPath);
 	}
+}
+
+function updateTextContent(id, content)
+{
+	var tag = document.getElementById(id);
+	tag.innerHTML = content;
+}
+
+function uppdatePasswordPrompt(foldername)
+{
+	updateTextContent('passPrompt-title', passwordPromptTitles[foldername]);
+	updateTextContent('passPrompt-text', passwordPromptTexts[foldername]);
+	updateTextContent('passPrompt-confirm', passwordPromptConfirms[foldername]);
+	updateTextContent('wrongPassword-text', passwordPromptErrors[foldername]);
+	document.getElementById("passwordInput").placeholder = passwordInputPlaceholders[foldername];
 }

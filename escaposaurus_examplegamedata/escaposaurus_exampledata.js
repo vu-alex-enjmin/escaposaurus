@@ -38,7 +38,7 @@
 			"root": {
 				"folders" : [
 					{
-						"foldername" : "Telephone du Bureau",
+						"foldername" : "Telephone fixe",
 						"password" : "789123",
 						"promptTitle" : "TELEPHONE", // Titre de la boite de dialogue de mot de passe
 						"promptText" : "Quel numéro appeler ?", // Texte de la boite de dialogue
@@ -49,7 +49,7 @@
 						"files" : ["nouvelles regles.png"],
 					}
 				],
-				"files" : ["etagere.png", "annuaire.png"]
+				"files" : ["Explorer l'annuaire", "Regarder les boites de jeux"]
 			}
 		} ;
 

@@ -598,7 +598,10 @@ function changingSequence(){
 	}else{
 		TinyStato.logThis(3, "newsequence", "", sequenceNumber) ;
 		mainHintFound = false ;
-		lockContacts() ;
+		lockContacts() ;if(seqMainHint[sequenceNumber] == "noHint"){
+			mainHintFound = true ;
+			unlockContacts() ;
+		}
 		if(seqMainHint[sequenceNumber] == "noHint"){
 			mainHintFound = true ;
 			unlockContacts() ;
@@ -640,6 +643,11 @@ function closeAppelEntrant(d){
 	if(winState === false){
 		openVideoWindow('intro') ;
 		playSequenceStartVideo();
+
+		if(seqMainHint[sequenceNumber] == "noHint"){
+			mainHintFound = true ;
+			unlockContacts() ;
+		}
 	}else{
 		openEpilogue() ;
 	}

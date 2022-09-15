@@ -613,8 +613,11 @@ function changingSequence(){
 
 function win(){
 	winState = true ;
+
+	
 	// openIt("newContact-window") ;
 	/*removing existing stuff*/
+	/*
 	var nc = document.getElementById("normal-contact") ;
 	while (nc.firstChild) {
 		nc.removeChild(nc.lastChild);
@@ -627,6 +630,10 @@ function win(){
 	
 	var nc = document.getElementById("normal-contact") ;
 	createContact(missingContact, nc) ;
+	mainHintFound = true ;
+	unlockContacts() ;
+	*/
+	openVideoWindow("missing", missingVideoPath);
 }
 
 /*

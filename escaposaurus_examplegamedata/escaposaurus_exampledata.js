@@ -38,18 +38,6 @@
 			"root": {
 				"folders" : [
 					{
-						"foldername" : "Telephone du bureau",
-						"password" : "789123",
-						"promptTitle" : "TELEPHONE", // Titre de la boite de dialogue de mot de passe
-						"promptText" : "Quel numéro appeler ?", // Texte de la boite de dialogue
-						"promptConfirm" : "APPELER", // Bouton de confirmation de la boite de dialogue
-						"inputPlaceholder" : "numéro", // Texte de remplacement lorsque la zone de saisie est vide
-						"promptError" : "Personne n'a répondu à l'appel.", // Message d'erreur en cas de mauvais mot de passe
-						"unavailableText" : "Je n'ai pas besoin du téléphone du bureau pour le moment.", // Texte du message "repertoire indisponible"
-						"sequence": 3,
-						"files" : ["prises_de_notes_p1.png", "prises_de_notes_p2.png"],
-					},
-					{
 						"foldername" : "Choisir une boîte de jeu",
 						"password" : "Orc Slugger",
 						"promptTitle" : "NOM DU JEU", // Titre de la boite de dialogue de mot de passe
@@ -62,11 +50,11 @@
 							{
 								"foldername" : "Cartes Joueur",
 								"files" : [
-									"cle_acier.png",
-									"cle_argent.png",
-									"cle_cuivre.png",
-									"cle_fer.png",
-									"cle_or.png",
+									"cle_1.png",
+									"cle_2.png",
+									"cle_3.png",
+									"cle_4.png",
+									"cle_5.png",
 									"epee.png",
 									"parchemin.png",
 									"potion.png",
@@ -113,17 +101,29 @@
 						],
 						"files" : ["manuel.png"],
 					},
+					{
+						"foldername" : "Telephone du bureau",
+						"password" : "789123",
+						"promptTitle" : "TELEPHONE", // Titre de la boite de dialogue de mot de passe
+						"promptText" : "Quel numéro appeler ?", // Texte de la boite de dialogue
+						"promptConfirm" : "APPELER", // Bouton de confirmation de la boite de dialogue
+						"inputPlaceholder" : "numéro", // Texte de remplacement lorsque la zone de saisie est vide
+						"promptError" : "Personne n'a répondu à l'appel.", // Message d'erreur en cas de mauvais mot de passe
+						"unavailableText" : "Je n'ai pas besoin du téléphone du bureau pour le moment.", // Texte du message "repertoire indisponible"
+						"sequence": 3,
+						"files" : ["prises_de_notes_p1.png", "prises_de_notes_p2.png"],
+					},
 				],
 				"files" : ["annuaire.png", "etagere.png"]
 			}
 		} ;
 
 		var fileDisplayNames = {
-			"cle_acier.png" : "Clé en acier",
-			"cle_argent.png" : "Clé en argent",
-			"cle_cuivre.png" : "Clé en cuivre",
-			"cle_fer.png" : "Clé en fer",
-			"cle_or.png" : "Clé en or",
+			"cle_1.png" : "Clé 1",
+			"cle_2.png" : "Clé 2",
+			"cle_3.png" : "Clé 3",
+			"cle_4.png" : "Clé 4",
+			"cle_5.png" : "Clé 5",
 			"etagere.png" : "Regarder la bibliothèque de jeux",
 			"annuaire.png" : "Consulter l'annuaire téléphonique",
 			"prises_de_notes_p1.png" : "Consulter les notes (1/2)",
@@ -164,7 +164,7 @@
 		prompt[2] = "Prendre contact" ;
 		prompt[3] = "Prendre contact" ;
 		prompt[4] = "Prendre contact" ;
-		prompt[5] = "<b>PRENDRE CONTACT</b>" ;
+		prompt[5] = "Prendre contact" ;
 
 		/*when the sequence number reach this, the player win, the missing contact is added and the player can call them*/
 		var sequenceWin = 5 ;
@@ -178,7 +178,7 @@
 		seqMainHint[2] = "noHint" ;
 		seqMainHint[3] = "noHint" ;
 		seqMainHint[4] = "" ;
-		seqMainHint[5] = "noHint" ;
+		seqMainHint[5] = "" ;
 
 		/*contact list, vid is the name of their folder in the videoContact folder, then the game autoload the video named seq%number of the current sequence%, e.g. seq0.MP4 for the first sequence (numbered 0 because computer science habits)
 	their img need to be placed in their video folder, username is their displayed name
@@ -196,7 +196,7 @@
 		/* videos that play at the start of a new sequence */
 		var seqStartVideosPath = videoRoot + "sequenceStart/" ;
 		// whether or not a video should be played at the start of a sequence (0-indexed)
-		var seqStartVideoAvailable = [ false, false, false, true, true, false ];
+		var seqStartVideoAvailable = [ false, true, true, true, true, false ];
 
 		/*ce qui apparait quand on trouve le dernier élément du disque dur*/
 		// finalStepAdded = "L'action a fonctionné." ;
@@ -216,7 +216,7 @@
 
 		/*text for the instruction / solution windows*/
 		var instructionText = {} ;
-		instructionText.winState = "Vous avez retrouvé l'id GPS et vous pouvez appeler les secours du secteur." ;
+		instructionText.winState = "Vous avez réussi à libérer votre maître de stage." ;
 		instructionText.lackMainHint = "" ;
 		instructionText.password = "Vous devez trouver et entrer le mot de passe d'un des dossiers de la boite de droite. Vous pouvez trouver le mot de passe en appelant les contacts de la boite de gauche.<br/>Pour entrer un mot de passe, cliquez sur le nom d'un dossier et une fenêtre s'affichera pour que vous puissiez donner le mot de passe." ;
 

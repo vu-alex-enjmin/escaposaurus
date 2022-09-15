@@ -139,7 +139,7 @@
 		var defaultUnavailableFolderText = "Je n'ai pas besoin de faire ça pour le moment."
 
 		var gameTitle = "Mémoires d'un stagiaire zélé" ;
-		var gameDescriptionHome = "Ceci est une courte aventure inspirée des expériences de vie d'Elizabeth Magie (1866-1948)<br/>Le code source est téléchargeable sur <a href='https://github.com/RedNaK/escaposaurus' target='_blank'>GitHub</a>" ;
+		var gameDescriptionHome = "Ceci est une courte aventure inspirée des expériences de vie d'Elizabeth Magie (1866-1948)<br/>Le code source est téléchargeable sur <a href='https://github.com/vu-alex-enjmin/escaposaurus' target='_blank'>GitHub</a>" ;
 		var gameMissionCall = "Le patron m'a envoyé ce mail étrange... dans quelle galère va-t-il encore me fourrer ? J'en ai marre d'être son souffre douleur." ;
 		var gameMissionAccept = "&raquo;&raquo; Aller au bureau la boule au ventre (JOUER) &laquo;&laquo;" ;
 
